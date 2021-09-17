@@ -63,6 +63,6 @@ fun commissionCount(
 
 fun main() {
 
-    print(commissionCount(MIR,2000000,6666666))
+    print(commissionCount(VISA, 5000, 3333333))
 
 }

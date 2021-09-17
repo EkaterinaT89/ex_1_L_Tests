@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>main.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Задача 2 расчет комисии</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">main.kt</span></div><h1>main.kt</h1><pre class="source lang-java linenums">const val VK_PAY = &quot;VK_PAY&quot;
+const val MAESTRO = &quot;Maestro&quot;
+const val MASTERCARD = &quot;Mastercard&quot;
+const val VISA = &quot;Visa&quot;
+const val MIR = &quot;РњРёСЂ&quot;
+
+const val LIMIT_CARD_MONTHLY = 60_000_000
+const val LIMIT_CARD_DAYLY = 15_000_000
+const val LIMIT_VK_PAY_DAYLY = 1_500_000
+const val LIMIT_VK_PAY_MONTHLY = 4_000_000
+const val MIN_COMMISSION_VISA_MIR = 35_00
+
+fun commissionCountMaestroMastercard(transactionAmount: Long, previousAmountMonthly: Long): String {
+<span class="fc" id="L14">    var toCount = ((transactionAmount / 100 * 0.6) + 2_000).toInt()</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">    if (previousAmountMonthly &gt;= LIMIT_CARD_MONTHLY) {</span>
+<span class="fc" id="L16">        return &quot;РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ РїРµСЂРµРІРѕРґРѕРІ!&quot;</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">    } else if (transactionAmount &gt;= LIMIT_CARD_DAYLY) {</span>
+<span class="fc" id="L18">        return &quot;РЎР»РёС€РєРѕРј Р±РѕР»СЊС€Р°СЏ СЃСѓРјРјР°!&quot;</span>
+<span class="fc bfc" id="L19" title="All 4 branches covered.">    } else if (transactionAmount &gt;= 30_000 &amp;&amp; transactionAmount &lt;= 7_500_000) {</span>
+<span class="fc" id="L20">        return &quot;РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ 0 РєРѕРї.&quot;</span>
+    } else {
+<span class="fc" id="L22">        return &quot;РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ &quot; + toCount.toString() + &quot; РєРѕРї.&quot;</span>
+    }
+}
+
+fun commissionVisaMir(transactionAmount: Long, previousAmountMonthly: Long): String {
+<span class="fc" id="L27">    var toCount = (transactionAmount / 100 * 0.75).toInt()</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">    if (previousAmountMonthly &gt;= LIMIT_CARD_MONTHLY) {</span>
+<span class="fc" id="L29">        return &quot;РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ РїРµСЂРµРІРѕРґРѕРІ!&quot;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">    } else if (transactionAmount &gt;= LIMIT_CARD_DAYLY) {</span>
+<span class="fc" id="L31">        return &quot;РЎР»РёС€РєРѕРј Р±РѕР»СЊС€Р°СЏ СЃСѓРјРјР°!&quot;</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">    } else if (toCount &lt; MIN_COMMISSION_VISA_MIR) {</span>
+<span class="fc" id="L33">        return &quot;РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІСЏР»РµС‚ 35 СЂСѓР±.&quot;</span>
+    } else {
+<span class="fc" id="L35">        return &quot;РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ &quot; + toCount.toString() + &quot; РєРѕРї.&quot;</span>
+    }
+}
+
+fun commissionVkPay(transactionAmount: Long, previousAmountMonthly: Long): String {
+<span class="fc bfc" id="L40" title="All 2 branches covered.">    if (previousAmountMonthly &gt;= LIMIT_VK_PAY_MONTHLY) {</span>
+<span class="fc" id="L41">        return &quot;РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ РїРµСЂРµРІРѕРґРѕРІ!&quot;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">    } else if (transactionAmount &gt;= LIMIT_VK_PAY_DAYLY) {</span>
+<span class="fc" id="L43">        return &quot;РЎР»РёС€РєРѕРј Р±РѕР»СЊС€Р°СЏ СЃСѓРјРјР°!&quot;</span>
+    } else {
+<span class="fc" id="L45">        return &quot;РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ 0 РєРѕРї.&quot;</span>
+    }
+}
+
+
+<span class="pc bpc" id="L50" title="2 of 4 branches missed.">fun commissionCount(</span>
+<span class="fc" id="L51">    card_type: String = VK_PAY,</span>
+<span class="fc" id="L52">    previousAmountMonthly: Long = 0,</span>
+    transactionAmount: Long
+): String {
+<span class="pc bpc" id="L55" title="4 of 13 branches missed.">      return when (card_type) {</span>
+<span class="fc" id="L56">          MAESTRO -&gt; commissionCountMaestroMastercard(transactionAmount, previousAmountMonthly)</span>
+<span class="fc" id="L57">          MASTERCARD -&gt; commissionCountMaestroMastercard(transactionAmount, previousAmountMonthly)</span>
+<span class="fc" id="L58">          VISA -&gt; commissionVisaMir(transactionAmount, previousAmountMonthly)</span>
+<span class="fc" id="L59">          MIR -&gt; commissionVisaMir(transactionAmount, previousAmountMonthly)</span>
+<span class="fc" id="L60">          else -&gt; commissionVkPay(transactionAmount, previousAmountMonthly)</span>
+  }
+}
+
+fun main() {
+
+<span class="nc" id="L66">    print(commissionCount(VISA, 5000, 3333333))</span>
+
+<span class="nc" id="L68">}</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

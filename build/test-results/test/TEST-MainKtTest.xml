@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MainKtTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2021-09-17T19:34:58" hostname="DESKTOP-0CG7ONO" time="0.015">
+  <properties/>
+  <testcase name="MaestroMasterCard_Commission_Too_Much_For_Day" classname="MainKtTest" time="0.006"/>
+  <testcase name="Visa_Mir_commissionCount_Too_Much_Day" classname="MainKtTest" time="0.0"/>
+  <testcase name="count_of_commission_right_MIR" classname="MainKtTest" time="0.006"/>
+  <testcase name="VK_PAY_Commission_0" classname="MainKtTest" time="0.0"/>
+  <testcase name="MaestroMasterCard_Commission_Too_Much_For_Month" classname="MainKtTest" time="0.0"/>
+  <testcase name="VK_PAY_Commission_Too_Much" classname="MainKtTest" time="0.0"/>
+  <testcase name="Visa_Mir_commissionCount_Too_Much_Month" classname="MainKtTest" time="0.0"/>
+  <testcase name="count_of_commission_right" classname="MainKtTest" time="0.0"/>
+  <testcase name="count_of_commission_right_MAESTRO" classname="MainKtTest" time="0.001"/>
+  <testcase name="count_of_commission_right_MASTERCARD" classname="MainKtTest" time="0.0"/>
+  <testcase name="VK_PAY_Commission" classname="MainKtTest" time="0.0"/>
+  <testcase name="MaestroMasterCard_Commission_0" classname="MainKtTest" time="0.0"/>
+  <testcase name="MaestroMasterCard_Commission" classname="MainKtTest" time="0.0"/>
+  <testcase name="count_of_commission_right_VK_PAY" classname="MainKtTest" time="0.0"/>
+  <testcase name="Visa_Mir_commissionCount_Count" classname="MainKtTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

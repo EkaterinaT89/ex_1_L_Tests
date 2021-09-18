@@ -80,19 +80,19 @@ class MainKtTest {
         assertEquals("Комиссия составялет 35 руб.", result)
     }
 
-//    @Test
-//    fun count_of_commission_wrong() {
-//        val type_of_cards = VISA
-//        val monthAmount: Long = 1000
-//        val sumOfTransaction: Long = 100
-//
-//        val result = commissionCount(
-//            card_type = type_of_cards,
-//            previousAmountMonthly = monthAmount,
-//            transactionAmount = sumOfTransaction
-//        )
-//        assertEquals("Комиссия составялет 66 руб.", result)
-//    }
+    @Test
+    fun count_of_commission_wrong() {
+        val type_of_cards = VISA
+        val monthAmount: Long = 1000
+        val sumOfTransaction: Long = 100
+
+        val result = commissionCount(
+            card_type = type_of_cards,
+            previousAmountMonthly = monthAmount,
+            transactionAmount = sumOfTransaction
+        )
+        assertEquals("Комиссия составялет 66 руб.", result)
+    }
 
     @Test
     fun VK_PAY_Commission() {
